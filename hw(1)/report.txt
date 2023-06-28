@@ -1,0 +1,73 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 26 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<<4 >>>
+
+3. Did you receive help from anyone? List their names, status (classmate, 
+   CS451/651 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   ...                ...          ...
+
+4. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Using CLEmitter)
+      Approach:  For this I basically went through the genfactorial and understand the problem . As these both of kind of similar
+      it gave me the brief idea about how the code is formatted. I wrote the most of the things handwritten along the way and also i used the book
+      and the online resources the fix some of the error that I was having in between while I was confused how the methods argument and returned type
+      was defined. Watching mutiple example and going back to the lecture video helped me solve this problem.
+
+      Issues and resolution:
+        I had issues when it was hard time how the methods and returned type was declared once i got brief idea of how it is done
+        it made me easier to fix the issue in no time.
+
+   Problem 2 (Arithmetic Operations)
+      Approach: I read through the provided files, tokeninfo ,scanner, parser,junary and jbinary files and it helped me in
+      understanding what's going on with the java files and I also got the idea of how the things can be done. I saw it in the chapter1 in
+      the book how the JDivideop is done. I followed the hints which helped me where should i be making the change in the code
+     file.
+
+      Issues and resolution:
+      I had issues understanding what happened each time during the compilation .For the division operator I had followed all the same steps as with the modulo but I couldn't figure
+       out why it was giving the error. So I had to follow the steps and see what other parts of the code were doing.
+       I noticed that it wasn't working because the "/" character gets registered to check for comments in the scanner file.
+
+   Problem 3 (Bitwise Operations)
+      Approach:  I had something similar to the part2 of this project. I added the tokens to the tokenInfo file , I went to the scanner and
+      added the different cases for the different characters in the switch case of the file.
+       In this part it was simpler to add the characters.  I searched for alot of things online to understand about the opcode for the & and NOT,
+       This part was little bit tricky and I spent alot of my times going through the resources.  I find parser very tricky and had most of my time
+       reading through the code and changing the thing in it.
+      Issues and resolution:
+       I had hard time working with the parser as in the part 2 of the homework we just extended the previously defined expression
+       but in here we were asked to create the new ones. I went back to the homework appendix and I read the write up couple of
+       times , I also got into issue while changing the way how the conditionalANDExpression was working in the problem. I spent my most of the
+       time in this part as my code wasnot working, I had to go over all of my steps and also I had to read again and again trying to figure out where
+       I had made an error. I had unused expression which caused alot of error until i noticed inclusiveorexpression was supposed to be used in
+       the conditionalANDExpression which comipler wasnot able to notice.
+
+   Problem 4 (Shift Operations)
+      Approach:  This was pretty much easier as i had already idea of adding the new language features to the compiler, I followed the same approach
+      as problem number 2 and 3. It took me less time as I was already comfortable with how the things were working in my project.
+
+      Issues and resolution:
+       I didnot have much  issues while doing this as i was aware where i had mostly making mistake and this helped me alot looking for
+       possible errors and I solved it fastest amiong the rest of the problems.
+
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+    This assignment was really exciting but also i got very clear that i was masking most of the error in the problem as i was trying to work
+    before having the deeper knowledge but once I went to the sample examples and lectures videos including the notes. I was very much
+    happy to work with the compiler. The first problem help me to understand how the compiler build the code. I spent most of my time
+    on the project learning new concept and idea and also as this was my first j-- project it was fun.

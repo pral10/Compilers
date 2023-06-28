@@ -1,0 +1,120 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 15>>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<< 4>>>
+
+3. Did you receive help from anyone? List their names, status (classmate, 
+   CS451/651 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   ...                ...          ...
+
+4. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Part I (Additions to JavaCC Scanner)
+
+   Problem 1 (Multiline Comment)
+      Approach: This problem was pretty straight forward. Before starting the project i started by looking through
+      j--.jj file to get the understanding of the project. This was the first time using of javacc so I first looked at the
+      places for the single line comments and copied this with '/*' and '*/' respectively.
+
+      Issues and resolution: I had issue when i did not rename <begin_comment:> and <end_comment> which gave me error while compiling
+      which i fixed later and it worked fine.
+
+   Problem 2 (Operators)
+      Approach: This was simple as i added listed operators to the list in j--.jj and followed the order
+      provided in the grammar.
+
+      Issues and resolution: I had no issues.
+
+   Problem 3 (Reserved Words)
+      Approach: This was straight forward too as I added the list of stated reserved words to the list in j--.jj file
+      and followed the provided grammar .
+
+      Issues and resolution: No issues.
+
+   Problem 4 (Literals)
+      Approach:  This problem gave me hard time , I started by adding a digits type so I coulf clean int, lonh and double but it was
+      not only for single digit but for mutiple digits which i came to figure out by looking online and implementing<DIGIT> with () and adding the
+      plus to the end,and for the long I had to use DIGITS type and check for 'l' or 'L'afterwards.
+
+      Issues and resolution: I got stucked on double type , using the brackets to denote optional type didnot worm but later
+      found out that by putting the '()?' and '()*' after the optional part it worked completely fine for me.
+
+   Part II (Additions to JavaCC Parser)
+
+
+   Problem 5 (Long and Double Basic Types)
+      Approach: for this problem i went to the literal parts of parser and i checked for <LONG_LITERAL> and <DOUBLE_LITERAL> and returned the appropriate j class with the line
+      and the image.
+
+      Issues and resolution: I had no issues.
+
+   Problem 6 (Operators)
+      Approach: I had to move back and forth between j--.jj and parser.jaba to implement the operators in the same places as the parser. I had to make sure
+      that the previous operators was pointing at the correct next in line operator. It was not hard but i had mistakes placing them at the right places.
+
+      Issues and resolution: It was pretty simple but time consuming and confusing to implement as i had to look back and forth.
+
+   Problem 7 (Conditional Expression)
+      Approach: I created the conditionalExpression function and linked it with another function as mentioned in appendix. I changed the some
+      of the return type in the function with the help of the new design of the appendix. I modeled the function like I did in handwritten parser. I created three JExpression and from there I read in a conditionalorExpression and returned
+      a JConditionalExpression with the variable I created.
+
+
+
+   Problem 8 (Do Statement)
+      Approach: All I did was check for the DO keyword then read in a statement and store it in the body, read in a parenthesized
+      expression and checked for the semicolon and then returned the JDOSTatement object.
+
+
+
+   Problem 9 (For Statement)
+      Approach: I wrote the dorINit and forUpdated functions where intint function had to return the list if jstatement si I created an array
+      list that would store either a variable amount of statementExpression or a single variableDeclaration. This required me to checl for the refrence ype or basic type . Theb I wrote the for update which was just at minimum one statement expression.
+
+
+
+   Problem 10 (Break Statement)
+      Approach: I had to add another branch for the statement function that checks for the break keyword
+      followed by a semicolon.
+
+
+
+   Problem 11 (Continue Statement)
+      Approach: This was similar as break just instead of break keyword it used the continue keyword followed by the
+      semicolon.
+
+
+
+   Problem 12 (Switch Statement)
+      Approach: Implementing a switch statement required appending to statement function. I had to add
+      some variable to the top a switch statement group and the list of them.from here I added a new branch and tried block. I created the klenee closure to read in the variable amount of switch block statements and group and then returned the class.
+
+
+   Problem 13 (Exception Handlers)
+      This was one of the more tedious problems. I started by writting out the sections in the
+         statement function to handle the try and the throw. From here I modified the memberDecl
+         function to handle methods that can throw exceptions. This was more tedious than anything
+         because the code we had to add wasn't anything complex, it was just a matter of putting
+         it in the right place within the structure. I also had to add the array lists to store
+         all the exception types but this was similar to what I did in the previous problems.
+
+   Problem 14 (Interface Type Declaration)
+      Approach: ...
+
+      Issues and resolution: ...
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   ...

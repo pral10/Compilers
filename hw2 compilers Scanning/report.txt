@@ -1,0 +1,65 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<< 7 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between <<< and >>> signs below (eg, <<<3>>>).
+
+   <<<3 >>>
+
+3. Did you receive help from anyone? List their names, status (classmate, 
+   CS451/651 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   ...                ...          ...
+
+4. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Multiline Comment)
+      Approach: I firstly start by drawing out the diagram and then work on the coding. I knew how I was going to change
+      how scanner looks like for '/', so I added a case for '*' coming as the nextch. It was simple as reading a slash followed
+      by the a star, then continuing until the star was found then only stopped to read the comment.
+
+      Issues and resolution:
+      I didnot have any issue with this part, it was straight and easy.
+
+   Problem 2 (Operators)
+      Approach:  This was similar to what i did on the project1, I added all the listed out operators on the tokeninfo
+      once i got done with adding it all up I went to scanner and added the cases to the scanner file.
+
+      Issues and resolution:
+      I didnot have any issue with this part too as i was already aware how it was done looking at project1.
+   
+   Problem 3 (Reserved Words)
+      Approach: This was simple operation too , I added the reserved word to the tokeninfo, and added them to hastable in
+      the scanner at the top of the scanner file called scanner.java.
+
+      Issues and resolution:
+        I had few typo while working with it but with few test and running I was able to solve it.
+
+   Problem 4 (Literals)
+      Approach:  I first read the appendix for the homework assignment. I got the idea of how the double and the longs were
+      defined. I then figured out to do the support for the double. I broke the problem into the sub problem and started to work on the
+      project.I looked at the programming assignment grammar and realized that it gave the
+      defination for the literal. I went to where digits are scanned and added if statements to check if they
+      end with 'l'  or 'L' if it didnpt i appened that to the string and returned the long literal.
+
+        similarly for double literal I checked for '.' in string of digits. I kept looking at the nextch intil I encounter
+        a newline, EOFCH, ,operators,characters,whitespace. I added the clause in the '.' where it will check for the digits and if it does
+        i ran a while loop with the cases above and then returned double literal with appended String.
+
+      Issues and resolution:
+         I had the problem while i was reading one to many charaters after reading the double whiche made my program loose the next line of the code
+         after i checked the tokenized version with correct code i was able to fix the issue.
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+I think this assignment gave a clear concept why we don't want to hand write the scanner. This project was
+much more easier as we had already known what needed to be done. It was helpul to modify more onto the project which we have already done
+as we were working on some files from earlier project it was comparitivly easy.

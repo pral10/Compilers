@@ -1,0 +1,116 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<<22 >>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<<5 >>>
+
+3. Did you receive help from anyone? List their names, status (classmate, 
+   CS451/651 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   ...                ...          ...
+
+4. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Long and Double Basic Types)
+   I started with the Long type first. Looking at the Int class,then  I analyzed function for Longs just needed to change the type from Type.Int to Type .Long.
+   The codegen method was where the real change needed to happen. The codegen for Ints basically
+   checked for all the int constants and used the JVM Byte code for them. I looked for the
+   Long versions and found that there were only LCONST_0 and LCONST_1. This meant that I
+   could just use a simple if statement to handle the three cases. If my value was 0L or 1L,
+   I would use the appropriate constant. Otherwise, I would use the addLDCInstruction method
+   and simply pass it the parsed long.
+  I checked the JVariable class and saw where it was handling the offset loading off ints. I took this as a template and added the check for longs and doubles and then just changed the appropriate JVM byte code instruction. I could now declare variables of type double and long.
+    I added support for doubles and longs in the variableDeclaration class
+    I also added the add support to the method declarations by changing analyze method, and in the for loop that deals with the parameters,  check if the param is a double or a long, and then just increment the offset one more time.
+
+  I finally went to  jvm byte code to figure out why my program was compiling but wouldn't run. After looking around,
+ I noticed that the return type for a method that should return a long, was actually attempting to return an object. 
+For this I went to JReturnStatement class and  for the new return types,long and double.
+
+   Problem 2 (Operators
+   I looked into the JAssignmentExpression file and working my way down all the
+   classes. For the analyze methods, I made sure that  It was now checking for long
+   and doubles and then handling a few edge cases. For example the += operator could also work on
+   Strings, but the others couldn't. From here it was mostly just doing the same thing for all the
+   operators. In terms of the codegen methods, I would look for the appropriate JVM byte code
+   instruction and then just replace it in each method.
+
+   After getting all the  working, I  implemented the JBinaryExpression file.
+   This was similar to the assignments. I had to add extra checks since the operators didn't
+   only work with ints, and then just use the different versions of the byte code.   
+
+   Problem 3 (Conditional Expression)
+  Implementing condition expressions was similar to if statements, I didn't need to check for null else branches.
+ In the analyze method,I made the conditional part was a boolean and that the two branches were of the same type.for the codegen,
+ I started with the if statement codegen as a basis and the checks for null.
+   
+
+Problem 4 (Do Statement)
+ 
+ I started by looking over the While statement to get an idea of how it worked. 
+   All I did was checked if the condition was a boolean and then just analyze the. As for the codegen method, it was much more simple than the while loop.
+   I had to create a label at the top of the body, so the code would be able to loop.
+   Then I just needed to run codegen on the condition and if the condition evaluated to true,
+   it would need to go back up to the label on the body.
+
+
+   Problem 5 (For Statement)
+    From thechecklist, I knew I would need to create a new context for the for statement. This is because we declare new variables in the for init section. Using the new local context was pretty
+straight forward, I analyzed all the member variables and just passed in the local context  instead of the global one.
+   For the codegen method, I saw how the forstatement was structured in the byte code. . This was easy enough to code out, all I really needed to do as add labels in the right place to make sure the code would jump to the appropriate spots.
+
+
+   Problem 6 (Break Statement)
+     I stored the JStatementin the parser, and then have two booleans to check if the break statement was found, and if the enclosing statement was already set. From here I set them when appropriate and then pass the whole parser to the jbreakstatement. This was I can extract the variable from there
+since by the time I get to codegen, the enclosing statement is already set. I also had to modify
+the JStatement abstract class to store the breakLabel, that way I could access it no matter
+the type of the enclosing statement.
+
+   Problem 7 (Continue Statement)
+   I went ahead and added the check in the parser
+   for continue statements and then passed the parser into it the same way. I also had to
+   added a continue label to the JStatement abstract class and then updated it in the
+   while, do, and for statements. This was as simple as just changing the name in the code
+   gen methods as I had already created it .
+  
+I had no issue in this problem as it went straight.
+
+   Problem 8 (Switch Statement) 
+This was  one of the hardest problems in the assignment. I  implemented 
+   the analyze methods for the switch statement and switch block statement group.
+   In the switch block statement group, I made sure that the labels were all literal ints.
+   
+   From here, I started working on the codegen method.  I Started by initializing all my data and pulling out the hi and lo values from the switch block statement groups.
+ I then looped over the groups and  my data structures with the labels. From here I basically copied over the formula from the assignment to determine whether to do a TABLESWITCH or LOOKUPSWITCH.
+ I then just needed to look up the parameters for the CLE methods and pass the correct things.
+I realized that not having a default wasnot  letting my code compile. So what I did was create a boolean tostore whether or not a default was created, and if it wasn't I just needed to create one with no body.
+
+   Problem 9 (Exception Handlers)
+     I could not finish it as I got confused in its part , tried posting on piazza. But it did not help.
+
+
+  Problem 10 (Interface Type Declaration)
+      Approach:  I added the abstract and public in mods.
+      Then  add "abstract" and "interface" in the constructor for
+      JInterfaceDeclaration on the list of modifiers.I looked into that method and
+      saw it needed an ArrayList of string and Typename.
+
+      Then after that I implemented JinterfaceDeclaration to
+      JClassDeclaration. I  copied and paste from JClassDeclaration
+      and remove things that weren't necessary. I ran this with no issues.
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+This was definitely the most challenging homework yet. For a lot of it I 
+felt like there was not much to go off of and took a lot of time and thinking.
+Even with effort there were still a bunch of problems I was unable to 
+complete, the most out of any homework so far for me in this class.
